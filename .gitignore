@@ -1,0 +1,6 @@
+# Ignore build and IDE folders/files
+.gradle
+.idea
+run
+run-data
+build
