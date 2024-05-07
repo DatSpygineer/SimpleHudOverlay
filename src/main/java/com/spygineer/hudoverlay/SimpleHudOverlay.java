@@ -148,8 +148,8 @@ public class SimpleHudOverlay {
 						var minutes = (int)Math.floor(time / 16.6f) % 60;
 						g.drawString(inst.font,
 								Config.DISPLAY_TIME_24H.get() ?
-										String.format("Time: %d:%d", hours, minutes) :
-										String.format("Time: %d:%d %s", hours12 == 0 ? 12 : hours12, minutes, hours >= 12 ? "pm" : "am")
+										String.format("Time: %02d:%02d", hours, minutes) :
+										String.format("Time: %02d:%02d %s", hours12 == 0 ? 12 : hours12, minutes, hours >= 12 ? "pm" : "am")
 								, x, y, 0xE0E0E0);
 						y += inst.font.lineHeight + 5;
 					}
