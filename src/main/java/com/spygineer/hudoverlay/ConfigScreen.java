@@ -92,7 +92,7 @@ public class ConfigScreen extends Screen {
 			Config.OVERLAY_OFFSET_X.set(Integer.valueOf(offsetXBox.getValue()));
 			Config.OVERLAY_OFFSET_Y.set(Integer.valueOf(offsetYBox.getValue()));
 		} catch (Exception e) {
-			HudOverlays.LOGGER.error("Failed to set x/y offset, exception thrown: {}", e.getMessage());
+			SimpleHudOverlay.LOGGER.error("Failed to set x/y offset, exception thrown: {}", e.getMessage());
 		}
 	}
 
