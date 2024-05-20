@@ -19,6 +19,9 @@ import java.util.stream.Collectors;
 public class Config {
 	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
+	public static final ForgeConfigSpec.BooleanValue DISPLAY_FPS = BUILDER
+			.comment("Should the current FPS be displayed?")
+			.define("display_fps", true);
 	public static final ForgeConfigSpec.BooleanValue DISPLAY_COORDS = BUILDER
 			.comment("Should the player coordinates be displayed?")
 			.define("display_coords", true);
@@ -37,6 +40,9 @@ public class Config {
 	public static final ForgeConfigSpec.IntValue OVERLAY_OFFSET_Y = BUILDER
 			.comment("Overlay's y offset")
 			.defineInRange("offset_y", 5, 0, Integer.MAX_VALUE);
+	public static final ForgeConfigSpec.IntValue TEXT_COLOR = BUILDER
+			.comment("Overlay text's color")
+			.defineInRange("text_color", 0xE0E0E0, 0, 0xFFFFFF);
 
 	public static final ForgeConfigSpec SPEC = BUILDER.build();
 

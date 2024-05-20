@@ -130,16 +130,21 @@ public class SimpleHudOverlay {
 					final var level = inst.player.level();
 					final var biome = getBiomeName(level, level.getBiome(pos).get());
 					final var time = level.getDayTime();
+					final var color = Config.TEXT_COLOR.get();
 
 					var g = event.getGuiGraphics();
 					var x = Config.OVERLAY_OFFSET_X.get();
 					var y = Config.OVERLAY_OFFSET_Y.get();
+					if (Config.DISPLAY_FPS.get()) {
+						g.drawString(inst.font, String.format("FPS: %d", inst.getFps()), x, y, color);
+						y += inst.font.lineHeight + 5;
+					}
 					if (Config.DISPLAY_COORDS.get()) {
-						g.drawString(inst.font, String.format("X: %d, Y: %d, Z: %d", pos.getX(), pos.getY(), pos.getZ()), x, y, 0xE0E0E0);
+						g.drawString(inst.font, String.format("X: %d, Y: %d, Z: %d", pos.getX(), pos.getY(), pos.getZ()), x, y, color);
 						y += inst.font.lineHeight + 5;
 					}
 					if (Config.DISPLAY_BIOME.get()) {
-						g.drawString(inst.font, String.format("Biome: %s", biome), x, y, 0xE0E0E0);
+						g.drawString(inst.font, String.format("Biome: %s", biome), x, y, color);
 						y += inst.font.lineHeight + 5;
 					}
 					if (Config.DISPLAY_TIME.get()) {
@@ -150,7 +155,7 @@ public class SimpleHudOverlay {
 								Config.DISPLAY_TIME_24H.get() ?
 										String.format("Time: %02d:%02d", hours, minutes) :
 										String.format("Time: %02d:%02d %s", hours12 == 0 ? 12 : hours12, minutes, hours >= 12 ? "pm" : "am")
-								, x, y, 0xE0E0E0);
+								, x, y, color);
 						y += inst.font.lineHeight + 5;
 					}
 				} catch (Exception ex) {
